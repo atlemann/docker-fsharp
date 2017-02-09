@@ -48,3 +48,4 @@ source ./env.sh
   --replace & wait $!
 
 ./bin/Agent.Listener run & wait $!
+
