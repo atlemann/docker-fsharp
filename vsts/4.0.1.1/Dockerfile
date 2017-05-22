@@ -1,5 +1,5 @@
 FROM microsoft/vsts-agent:ubuntu-16.04-tfs-2017
-MAINTAINER Henrik Feldt
+LABEL maintainer "Atle Rudshaug"
 
 ENV MONO_VERSION 4.4.2.11
 
