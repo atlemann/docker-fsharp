@@ -1,6 +1,7 @@
 FROM buildpack-deps:trusty
 LABEL maintainer "Dave Curylo <dave@curylo.org>, Steve Desmond <steve@stevedesmond.ca>"
 
+# See http://download.mono-project.com/repo/debian/dists/wheezy/snapshots/
 ENV MONO_VERSION 4.8.0.495
 
 RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF && \
@@ -12,7 +13,7 @@ RUN apt-get -y update && \
     apt-get -y --no-install-recommends install nuget mono-devel ca-certificates-mono && \
     rm -rf /var/lib/apt/lists/*
 
-ENV FSHARP_VERSION 4.0.0.4
+ENV FSHARP_VERSION 4.1.0.1
 ENV FSHARP_PREFIX=/usr \
     FSHARP_GACDIR=/usr/lib/mono/gac \
     FSHARP_BASENAME=fsharp-$FSHARP_VERSION \
@@ -30,4 +31,5 @@ RUN mkdir -p /tmp/src && \
     cd ~ && \
     rm -rf /tmp/src
 
+WORKDIR /root
 CMD ["fsharpi"]
